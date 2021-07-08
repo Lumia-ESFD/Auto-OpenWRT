@@ -45,7 +45,18 @@ jobs:
       - name: Download package
         run: |
           cd openwrt && make download -j8
-        
+          
+      - name: Build
+        run: |
+          cd openwrt
+          make -j$(($(nproc) + 1))
+          
+      - name : Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: OpenWrt
+          path: openwrt/bin/targets/*/*
+          
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
