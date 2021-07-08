@@ -25,9 +25,11 @@
   vim target/linux/ath79/image/tiny-tp-link.mk
 
   ./scripts/feeds update -a
+  
   ./scripts/feeds install -a
 
   make menuconfig
+  
   exit后程序继续自动执行后续操作
 
 3、此步骤Actions自动完成
