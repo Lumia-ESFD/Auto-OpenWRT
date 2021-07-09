@@ -41,8 +41,6 @@ jobs:
           cd openwrt
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-        
-     
 
       # SSH Connect To Actions
       - name: Setup Debug Session
