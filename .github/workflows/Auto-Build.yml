@@ -16,7 +16,7 @@ on:
           getcloneurl:
             description: 'Get Clone URL'     
             required: true
-            default: 'https://github.com/openwrt/openwrt'
+            default: 'https://github.com/openwrt/openwrt.git'
           myapps:
             description: 'Add My Apps'     
             default: 'https://github.com/fw876/helloworld.git'
