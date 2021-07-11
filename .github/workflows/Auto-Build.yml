@@ -17,6 +17,9 @@ on:
             description: 'Get Clone URL'     
             required: true
             default: 'https://github.com/openwrt/openwrt'
+          myapps:
+            description: 'Add My Apps'     
+            default: 'https://github.com/fw876/helloworld.git'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,8 +42,9 @@ jobs:
         run: |
           git clone ${{ github.event.inputs.getcloneurl }} openwrt
           cd openwrt
-          ./scripts/feeds update -a
-          ./scripts/feeds install -a
+          sed -i -e '/custom-feed/a\src-git myapps ${{ github.event.inputs.myapps }}' feeds.conf.default
+          ./scripts/feeds update -a -f
+          ./scripts/feeds install -a -f
 
       # SSH Connect To Actions
       - name: Setup Debug Session
