@@ -67,8 +67,8 @@ jobs:
       - name : Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: OpenWrt
-          path: openwrt/bin/targets/*/*
+          name: OpenWrt-$NOW
+          path: openwrt/bin/targets/*/*/*.*
           
       # Runs a single command using the runners shell
       - name: Run a one-line script
