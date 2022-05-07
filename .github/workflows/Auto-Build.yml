@@ -52,14 +52,11 @@ jobs:
           # cd openwrt
           # make menuconfig
           
-      - name: Download package
+      - name: Download package and Build
         run: |
            cd lede
            make download -j8
-          
-      - name: Build
-        run: |
-          make V=s -j$(nproc)
+           make V=s -j$(nproc)
           
       - name : Upload artifact
         uses: actions/upload-artifact@v2
