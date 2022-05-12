@@ -51,7 +51,7 @@ jobs:
       - name: Clone Source
         run: |
           cd /home/runner
-          bash ${GITHUB_WORKSPACE}/clone_source.sh
+          bash ${GITHUB_WORKSPACE}/${{github.event.inputs.Models}}/clone_source.sh
           sudo chown -R runner:runner lede
           
       - name: Before Build
