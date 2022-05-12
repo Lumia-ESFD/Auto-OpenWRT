@@ -69,7 +69,7 @@ jobs:
       
       - name: After Build
         run: |
-          /bin/bash /home/runner/lede/after_build.sh
+          /bin/bash ${GITHUB_WORKSPACE}/after_build.sh
       
       - name: Upload Packages
         uses: actions/upload-artifact@v2
