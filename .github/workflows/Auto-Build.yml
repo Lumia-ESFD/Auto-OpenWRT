@@ -56,6 +56,31 @@ jobs:
         run: |
           /bin/bash ${GITHUB_WORKSPACE}/before_build.sh
           cp -fpR ${GITHUB_WORKSPACE}/. /home/runner/lede/
+          
+      - name: Start Build
+        run: | 
+          cd /home/runner/lede
+          mv .config .config_default
+          rm -f .config.old
+          config_names="$(ls .config*)"
+          for i in $config_names;do mv -f $i .config; make defconfig; make -j$[$(nproc)+1]; rm -rf build_dir/target* build_dir/toolchain* staging_dir/target* staging_dir/toolchain*; done
+      - name: After Build
+        run: |
+          /bin/bash /home/runner/lede/after_build.sh
+      - name: Upload Packages
+        uses: actions/upload-artifact@v2
+        with:
+          name: Packages
+          path: /home/runner/lede/bin/packages/
+      - name: Upload Firmwares
+        uses: actions/upload-artifact@v2
+        with:
+          name: Firmwares
+          path: /home/runner/lede/bin/targets/
+          
+          
+          
+          
       
       - name: Installation depends
         run: |
