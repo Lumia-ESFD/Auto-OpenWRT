@@ -48,9 +48,16 @@ jobs:
 #      - name: Setup Debug Session
 #        uses: csexton/debugger-action@master
         
-      # Wait 30 seconds
-      - name: Wait 30s for SSH
-        run: sleep 30
+      - name: Clone Source
+        run: |
+          cd /home/runner
+          bash ${GITHUB_WORKSPACE}/clone_source.sh
+          sudo chown -R runner:runner lede
+          
+      - name: Before Build
+        run: |
+          /bin/bash ${GITHUB_WORKSPACE}/before_build.sh
+          cp -fpR ${GITHUB_WORKSPACE}/. /home/runner/lede/
 
       - name: Upload firmware directory
         uses: actions/upload-artifact@v2
