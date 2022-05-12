@@ -46,6 +46,11 @@ jobs:
           sudo -E swapoff -a
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc /swapfile
       
+      - name: Clone Source
+        run: |
+          cd /home/runner
+          bash ${GITHUB_WORKSPACE}/clone_source.sh
+          sudo chown -R runner:runner lede
       
       - name: Installation depends
         run: |
