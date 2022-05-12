@@ -57,7 +57,7 @@ jobs:
       - name: Before Build
         run: |
           /bin/bash ${GITHUB_WORKSPACE}/before_build.sh
-          cp -fpR ${GITHUB_WORKSPACE}/. /home/runner/lede/
+          cp -fpR ${GITHUB_WORKSPACE}/${{github.event.inputs.Models}}/. /home/runner/lede/
           
       - name: Start Build
         run: | 
