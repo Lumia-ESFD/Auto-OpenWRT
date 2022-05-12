@@ -51,6 +51,11 @@ jobs:
           cd /home/runner
           bash ${GITHUB_WORKSPACE}/clone_source.sh
           sudo chown -R runner:runner lede
+          
+      - name: Before Build
+        run: |
+          /bin/bash ${GITHUB_WORKSPACE}/before_build.sh
+          cp -fpR ${GITHUB_WORKSPACE}/. /home/runner/lede/
       
       - name: Installation depends
         run: |
