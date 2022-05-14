@@ -74,13 +74,13 @@ jobs:
       - name: Upload Packages
         uses: actions/upload-artifact@v2
         with:
-          name: Packages
+          name: ${{github.event.inputs.Models}}-Packages
           path: /home/runner/lede/bin/packages/
       
       - name: Upload Firmwares
         uses: actions/upload-artifact@v2
         with:
-          name: Firmwares
+          name: ${{github.event.inputs.Models}}-Firmwares
           path: /home/runner/lede/bin/targets/
 
       # Runs a single command using the runners shell
