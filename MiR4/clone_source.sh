@@ -12,6 +12,11 @@ pushd "lede";
 # sed -i -e '3s/$/^54fd237/g' feeds.conf.default
 # sed -i -e '4s/$/^2071d9f/g' feeds.conf.default
 
+sed -i "$imsize1/IMAGE_SIZE := .*/IMAGE_SIZE := 16064k/" target/linux/ramips/image/mt7621.mk
+sed -i 's/ssid=OpenWrt/ssid=MIWIFI/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i '/set wireless.default_radio${devidx}.encryption=psk2/a\set wireless.default_radio${devidx}.key=Password' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
 ./scripts/feeds update -a -f
 ./scripts/feeds install -a -f
 
