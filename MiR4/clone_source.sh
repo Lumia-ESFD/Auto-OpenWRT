@@ -25,7 +25,7 @@ export shanchu1=$(echo $shanchu1"r")
 sed -i "$shanchu1 youhua.txt" target/linux/ramips/dts/mt7621_xiaomi_mi-router-4.dts
 rm -rf youhua.txt
 
-export imsize1=$(grep  -a -n -e 'define Device/xiaomi_mir3g-v2' target/linux/ramips/image/mt7621.mk|cut -d ":" -f 1)
+export imsize1=$(grep  -a -n -e 'define Device/xiaomi_mir4' target/linux/ramips/image/mt7621.mk|cut -d ":" -f 1)
 export imsize1=$(expr $imsize1 + 2)
 export imsize1=$(echo $imsize1"s")
 
