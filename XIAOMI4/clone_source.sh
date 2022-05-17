@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git clone "https://github.com/coolsnowwolf/lede.git"
+git clone "https://github.com/coolsnowwolf/lede.git" OpenWRT
 
-pushd "lede"; 
+pushd "OpenWRT"; 
 
 git reset --hard e2535799fbfa1806694a5c5699f1bbe842868771
 

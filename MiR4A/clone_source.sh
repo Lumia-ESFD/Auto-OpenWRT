@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git clone "https://github.com/coolsnowwolf/lede.git"
+git clone "https://github.com/coolsnowwolf/lede.git" OpenWRT
 
-pushd "lede"; 
+pushd "OpenWRT"; 
 
 export shanchu1=$(grep  -a -n -e '&spi0 {' target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-3g-v2.dtsi|cut -d ":" -f 1)
 export shanchu2=$(grep  -a -n -e '&pcie {' target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-3g-v2.dtsi|cut -d ":" -f 1)

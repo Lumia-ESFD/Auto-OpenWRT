@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git clone "https://github.com/coolsnowwolf/lede.git"
+git clone "https://github.com/coolsnowwolf/lede.git" OpenWRT
 
-pushd "lede"; 
+pushd "OpenWRT"; 
 
 git reset --hard e2535799fbfa1806694a5c5699f1bbe842868771
 sed -i -e 's/192.168.1.1/192.168.3.1/g' -e 's/OpenWrt/TPLink_WR703Nv1/g' package/base-files/files/bin/config_generate  #修改路由器管理IP地址和主机名
