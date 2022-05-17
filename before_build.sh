@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/runner/lede
+cd /home/runner/OpenWRT
 
 # Enter your commands here, e.g.
 # echo "Start build!"
