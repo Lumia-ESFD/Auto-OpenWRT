@@ -52,16 +52,16 @@ jobs:
         run: |
           cd /home/runner
           bash ${GITHUB_WORKSPACE}/${{github.event.inputs.Models}}/clone_source.sh
-          sudo chown -R runner:runner lede
+          sudo chown -R runner:runner OpenWRT
           
       - name: Before Build
         run: |
           /bin/bash ${GITHUB_WORKSPACE}/before_build.sh
-          cp -fpR ${GITHUB_WORKSPACE}/${{github.event.inputs.Models}}/. /home/runner/lede/
+          cp -fpR ${GITHUB_WORKSPACE}/${{github.event.inputs.Models}}/. /home/runner/OpenWRT/
           
       - name: Start Build
         run: | 
-          cd /home/runner/lede
+          cd /home/runner/OpenWRT
           mv .config .config_default
           rm -f .config.old
           config_names="$(ls .config*)"
@@ -75,13 +75,13 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{github.event.inputs.Models}}-Packages
-          path: /home/runner/lede/bin/packages/
+          path: /home/runner/OpenWRT/bin/packages/
       
       - name: Upload Firmwares
         uses: actions/upload-artifact@v2
         with:
           name: ${{github.event.inputs.Models}}-Firmwares
-          path: /home/runner/lede/bin/targets/
+          path: /home/runner/OpenWRT/bin/targets/
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
