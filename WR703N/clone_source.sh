@@ -17,7 +17,7 @@ sed -i -e '1s/$/^e82d730/g' feeds.conf.default
 sed -i -e '2s/$/^974fb04/g' feeds.conf.default
 sed -i -e '3s/$/^54fd237/g' feeds.conf.default
 sed -i -e '4s/$/^2071d9f/g' feeds.conf.default
-sed -i -e '5s/$/^1022277/g' feeds.conf.default
+#sed -i -e '5s/$/^1022277/g' feeds.conf.default
 
 ./scripts/feeds update -a -f
 ./scripts/feeds install -a -f
